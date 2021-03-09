@@ -20,6 +20,8 @@ import com.gargoylesoftware.htmlunit.javascript.host.dom.NodeList;
 import GithubScraper.Core.ScrapeExecutor;
 import GithubScraper.RequestOperation.ContributionCount;
 
+
+//TODO: Implement logging via a logger library
 public class Main {
     public boolean someLibraryMethod() {
         return true;
@@ -57,7 +59,7 @@ public class Main {
             
             
         } catch (FailingHttpStatusCodeException | IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
     }

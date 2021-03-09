@@ -42,7 +42,7 @@ public class ScrapeExecutor {
 					}
 			}
 		} catch (FailingHttpStatusCodeException | IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
