@@ -18,7 +18,7 @@ import com.gargoylesoftware.htmlunit.javascript.host.dom.Node;
 import com.gargoylesoftware.htmlunit.javascript.host.dom.NodeList;
 
 import GithubScraper.Core.ScrapeExecutor;
-import GithubScraper.RequestOperation.CommitCount;
+import GithubScraper.RequestOperation.ContributionCount;
 
 public class Main {
     public boolean someLibraryMethod() {
@@ -27,7 +27,7 @@ public class Main {
     
     public static void main(String[] args) {
     	
-    	CommitCount cmtCount = new CommitCount();
+    	ContributionCount cmtCount = new ContributionCount();
     	ScrapeExecutor executor = new ScrapeExecutor();
     	executor.addOperation(cmtCount);
     	executor.executeAll();
