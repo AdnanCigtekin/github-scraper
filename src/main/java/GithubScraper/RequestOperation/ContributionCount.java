@@ -18,7 +18,7 @@ public class ContributionCount extends ScrapeRequest {
 	
 	
 	static public String getContributionCount(HtmlPage page) {
-		System.out.println("Contribution count request received");
+		//System.out.println("Contribution count request received");
 		DomNodeList<DomElement> headers =  page.getElementsByTagName("h2");
 		String contribCount = "";
 		for(DomElement header : headers) {
@@ -28,9 +28,9 @@ public class ContributionCount extends ScrapeRequest {
         	}
         }
 		List<String> result = StringOperaions.returnMatchedPattern("[0-9]+", contribCount);
-		System.out.println(result.get(0));
-		System.out.println("Contribution count done!");
-		return contribCount;
+		//System.out.println(result.get(0));
+		//System.out.println("Contribution count done!");
+		return result.get(0);
 	}
 
 }

@@ -37,6 +37,8 @@ public class ScrapeExecutor {
 						ContributionCount.getContributionCount(page);
 						break;
 					}
+					case "contribution-calendar":
+						break;
 					default:
 						throw new IllegalArgumentException("Unexpected value: " + operation.getOperationModel().getOperationName());
 					}
