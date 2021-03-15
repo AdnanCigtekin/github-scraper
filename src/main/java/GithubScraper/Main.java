@@ -30,7 +30,7 @@ public class Main {
     public static void main(String[] args) {
     	
     	ContributionCount cmtCount = new ContributionCount();
-    	ScrapeExecutor executor = new ScrapeExecutor();
+    	ScrapeExecutor executor = new ScrapeExecutor("AdnanCigtekin");
     	executor.addOperation(cmtCount);
     	executor.executeAll();
     	

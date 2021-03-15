@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.DomElement;
@@ -17,8 +19,10 @@ import GithubScraper.RequestOperation.ScrapeRequest;
 public class ScrapeExecutor {
 
 	private List<ScrapeRequest> operations = new ArrayList<ScrapeRequest>();
+	private String currentUser = "";
 	
-	public ScrapeExecutor() {
+	public ScrapeExecutor(String currentUser) {
+		this.currentUser = currentUser;
 	}
 	
 	public void addOperation(ScrapeRequest operation) {
@@ -29,12 +33,19 @@ public class ScrapeExecutor {
 		try (final WebClient webClient = new WebClient()) {
         	webClient.getOptions().setCssEnabled(false);
         	webClient.getOptions().setJavaScriptEnabled(false);
-            final HtmlPage page = webClient.getPage("https://github.com/AdnanCigtekin");
+            final HtmlPage page = webClient.getPage("https://github.com/" + currentUser);
+            ObjectMapper objectMapper = new ObjectMapper();
+
             
+            //TODO: Find a structure which stores very output in a lightweight and programmatic way.
 			for(ScrapeRequest operation : operations) {
 				switch (operation.getOperationModel().getOperationName()) {
 					case "contribution-count": {
-						ContributionCount.getContributionCount(page);
+						System.out.println("Getting Contribution Count");
+						ObjectNode objectNode = objectMapper.createObjectNode();
+						String res = ContributionCount.getContributionCount(page);
+						objectNode.put("contribution-count", res);
+						System.out.println("GOt contribution count as JSON!");
 						break;
 					}
 					case "contribution-calendar":
@@ -47,6 +58,7 @@ public class ScrapeExecutor {
 
 			e.printStackTrace();
 		}
+		
 	}
 
 	
