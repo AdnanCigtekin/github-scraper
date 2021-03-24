@@ -1,11 +1,16 @@
 package GithubScraper.Utility;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringOperaions {
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+public class StringOperations {
 
 	static public List<String> returnMatchedPattern(String pattern, String input) {
 		Pattern r = Pattern.compile(pattern);
@@ -19,5 +24,7 @@ public class StringOperaions {
 		}
 		return new ArrayList<String>();
 	}
+	
+	
 
 }

@@ -32,35 +32,36 @@ public class Main {
     	ContributionCount cmtCount = new ContributionCount();
     	ScrapeExecutor executor = new ScrapeExecutor("AdnanCigtekin");
     	executor.addOperation(cmtCount);
-    	executor.executeAll();
-    	
-    	System.out.println("Starting To Scrape");
-        try (final WebClient webClient = new WebClient()) {
-        	webClient.getOptions().setCssEnabled(false);
-        	webClient.getOptions().setJavaScriptEnabled(false);
-            final HtmlPage page = webClient.getPage("https://github.com/AdnanCigtekin");
-
-//            //get list of all divs
-//            final List<?> divs = page.getByXPath("//div");
-
-            //get div which has a 'name' attribute of 'John'
-//            final HtmlElement resultingText = (HtmlElement) page.getByXPath("/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/h2").get(0);
-//            System.out.println(resultingText.asText());
-
-            DomNodeList<DomElement> headers =  page.getElementsByTagName("h2");
-            
-            for(DomElement header : headers) {
-            	HtmlElement element = (HtmlElement) header.getFirstByXPath("self::node()[@class='f4 text-normal mb-2']");
-            	System.out.println(element == null ? "" : element.asText());
-            	//System.out.println(header.asText());
-            }
-            
-            System.out.println("Finished operation");
-            
-            
-        } catch (FailingHttpStatusCodeException | IOException e) {
-
-			e.printStackTrace();
-		}
+    	String res = executor.executeAll();
+    	System.out.println("RESULT:");
+    	System.out.println(res);
+//    	System.out.println("Starting To Scrape");
+//        try (final WebClient webClient = new WebClient()) {
+//        	webClient.getOptions().setCssEnabled(false);
+//        	webClient.getOptions().setJavaScriptEnabled(false);
+//            final HtmlPage page = webClient.getPage("https://github.com/AdnanCigtekin");
+//
+////            //get list of all divs
+////            final List<?> divs = page.getByXPath("//div");
+//
+//            //get div which has a 'name' attribute of 'John'
+////            final HtmlElement resultingText = (HtmlElement) page.getByXPath("/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/h2").get(0);
+////            System.out.println(resultingText.asText());
+//
+//            DomNodeList<DomElement> headers =  page.getElementsByTagName("h2");
+//            
+//            for(DomElement header : headers) {
+//            	HtmlElement element = (HtmlElement) header.getFirstByXPath("self::node()[@class='f4 text-normal mb-2']");
+//            	System.out.println(element == null ? "" : element.asText());
+//            	//System.out.println(header.asText());
+//            }
+//            
+//            System.out.println("Finished operation");
+//            
+//            
+//        } catch (FailingHttpStatusCodeException | IOException e) {
+//
+//			e.printStackTrace();
+//		}
     }
 }

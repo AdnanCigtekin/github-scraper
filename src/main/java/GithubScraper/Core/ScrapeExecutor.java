@@ -15,6 +15,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import GithubScraper.RequestOperation.ContributionCount;
 import GithubScraper.RequestOperation.ScrapeRequest;
+import GithubScraper.Utility.StringOperations;
 
 public class ScrapeExecutor {
 
@@ -29,26 +30,28 @@ public class ScrapeExecutor {
 		operations.add(operation);
 	}
 	
-	public void executeAll() {
+	public String executeAll() {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        ObjectNode objectNode = objectMapper.createObjectNode();
 		try (final WebClient webClient = new WebClient()) {
         	webClient.getOptions().setCssEnabled(false);
         	webClient.getOptions().setJavaScriptEnabled(false);
             final HtmlPage page = webClient.getPage("https://github.com/" + currentUser);
-            ObjectMapper objectMapper = new ObjectMapper();
 
-            
-            //TODO: Find a structure which stores very output in a lightweight and programmatic way.
+            //TODO: Find a structure which stores every output in a lightweight and programmatic way.
 			for(ScrapeRequest operation : operations) {
 				switch (operation.getOperationModel().getOperationName()) {
 					case "contribution-count": {
-						System.out.println("Getting Contribution Count");
-						ObjectNode objectNode = objectMapper.createObjectNode();
+						//System.out.println("Getting Contribution Count");					
 						String res = ContributionCount.getContributionCount(page);
 						objectNode.put("contribution-count", res);
-						System.out.println("GOt contribution count as JSON!");
+			
+			
 						break;
 					}
 					case "contribution-calendar":
+						objectNode.put("contribution-calendar", "test");
 						break;
 					default:
 						throw new IllegalArgumentException("Unexpected value: " + operation.getOperationModel().getOperationName());
@@ -56,8 +59,12 @@ public class ScrapeExecutor {
 			}
 		} catch (FailingHttpStatusCodeException | IOException e) {
 
+			objectNode = objectMapper.createObjectNode();
 			e.printStackTrace();
 		}
+
+		return objectNode.toString();
+		
 		
 	}
 

@@ -8,7 +8,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import GithubScraper.Core.OperationModel;
-import GithubScraper.Utility.StringOperaions;
+import GithubScraper.Utility.StringOperations;
 
 public class ContributionCount extends ScrapeRequest {
 
@@ -27,7 +27,7 @@ public class ContributionCount extends ScrapeRequest {
         		contribCount = element.asText();
         	}
         }
-		List<String> result = StringOperaions.returnMatchedPattern("[0-9]+", contribCount);
+		List<String> result = StringOperations.returnMatchedPattern("[0-9]+", contribCount);
 		//System.out.println(result.get(0));
 		//System.out.println("Contribution count done!");
 		return result.get(0);
