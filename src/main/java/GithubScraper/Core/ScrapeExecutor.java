@@ -13,6 +13,7 @@ import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
+import GithubScraper.RequestOperation.ContributionCalendar;
 import GithubScraper.RequestOperation.ContributionCount;
 import GithubScraper.RequestOperation.ScrapeRequest;
 import GithubScraper.Utility.StringOperations;
@@ -51,6 +52,7 @@ public class ScrapeExecutor {
 						break;
 					}
 					case "contribution-calendar":
+						ContributionCalendar.getContributionCalendar(page);
 						objectNode.put("contribution-calendar", "test");
 						break;
 					default:

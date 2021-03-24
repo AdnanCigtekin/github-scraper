@@ -18,6 +18,7 @@ import com.gargoylesoftware.htmlunit.javascript.host.dom.Node;
 import com.gargoylesoftware.htmlunit.javascript.host.dom.NodeList;
 
 import GithubScraper.Core.ScrapeExecutor;
+import GithubScraper.RequestOperation.ContributionCalendar;
 import GithubScraper.RequestOperation.ContributionCount;
 
 
@@ -30,8 +31,11 @@ public class Main {
     public static void main(String[] args) {
     	
     	ContributionCount cmtCount = new ContributionCount();
+    	ContributionCalendar cntCal = new ContributionCalendar();
     	ScrapeExecutor executor = new ScrapeExecutor("AdnanCigtekin");
     	executor.addOperation(cmtCount);
+    	executor.addOperation(cntCal);
+
     	String res = executor.executeAll();
     	System.out.println("RESULT:");
     	System.out.println(res);
