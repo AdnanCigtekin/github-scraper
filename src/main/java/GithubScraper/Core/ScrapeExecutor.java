@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -40,11 +41,9 @@ public class ScrapeExecutor {
         	webClient.getOptions().setJavaScriptEnabled(false);
             final HtmlPage page = webClient.getPage("https://github.com/" + currentUser);
 
-            //TODO: Find a structure which stores every output in a lightweight and programmatic way.
 			for(ScrapeRequest operation : operations) {
 				switch (operation.getOperationModel().getOperationName()) {
-					case "contribution-count": {
-						//System.out.println("Getting Contribution Count");					
+					case "contribution-count": {					
 						String res = ContributionCount.getContributionCount(page);
 						objectNode.put("contribution-count", res);
 			
@@ -52,8 +51,10 @@ public class ScrapeExecutor {
 						break;
 					}
 					case "contribution-calendar":
-						ContributionCalendar.getContributionCalendar(page);
-						objectNode.put("contribution-calendar", "test");
+						ArrayNode res = ContributionCalendar.getContributionCalendar(page);
+						
+						//objectNode.put("contribution-calendar", res);
+						objectNode.putArray("contribution-calendar").addAll(res);
 						break;
 					default:
 						throw new IllegalArgumentException("Unexpected value: " + operation.getOperationModel().getOperationName());
