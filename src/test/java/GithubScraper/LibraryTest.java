@@ -4,6 +4,9 @@
 package GithubScraper;
 
 import org.junit.Test;
+
+import githubscraper.Main;
+
 import static org.junit.Assert.*;
 
 public class LibraryTest {

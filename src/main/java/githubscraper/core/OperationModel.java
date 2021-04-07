@@ -1,4 +1,4 @@
-package GithubScraper.Core;
+package githubscraper.core;
 
 public class OperationModel {
 

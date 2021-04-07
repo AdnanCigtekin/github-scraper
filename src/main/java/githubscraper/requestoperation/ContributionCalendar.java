@@ -1,19 +1,16 @@
-package GithubScraper.RequestOperation;
+package githubscraper.requestoperation;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.gargoylesoftware.htmlunit.html.DomElement;
-import com.gargoylesoftware.htmlunit.html.DomNode;
 import com.gargoylesoftware.htmlunit.html.DomNodeList;
-import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.svg.SvgRect;
 
-import GithubScraper.Core.OperationModel;
+import githubscraper.core.OperationModel;
 
 public class ContributionCalendar extends ScrapeRequest {
 
@@ -24,7 +21,6 @@ public class ContributionCalendar extends ScrapeRequest {
 	//TODO: Return as JSON String
 	static public ArrayNode getContributionCalendar(HtmlPage page) {
 		ObjectMapper objectMapper = new ObjectMapper();
-		ObjectNode objectNode = objectMapper.createObjectNode();
 		
 		DomNodeList<DomElement> svgs = page.getElementsByTagName("rect");
 		List<String> elements = new ArrayList<String>();

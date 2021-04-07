@@ -1,4 +1,4 @@
-package GithubScraper.Core;
+package githubscraper.core;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,15 +9,11 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.DomElement;
-import com.gargoylesoftware.htmlunit.html.DomNodeList;
-import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
-import GithubScraper.RequestOperation.ContributionCalendar;
-import GithubScraper.RequestOperation.ContributionCount;
-import GithubScraper.RequestOperation.ScrapeRequest;
-import GithubScraper.Utility.StringOperations;
+import githubscraper.requestoperation.ContributionCalendar;
+import githubscraper.requestoperation.ContributionCount;
+import githubscraper.requestoperation.ScrapeRequest;
 
 public class ScrapeExecutor {
 

@@ -1,4 +1,4 @@
-package GithubScraper.RequestOperation;
+package githubscraper.requestoperation;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
-import GithubScraper.Core.OperationModel;
-import GithubScraper.Utility.StringOperations;
+import githubscraper.core.OperationModel;
+import githubscraper.utility.StringOperations;
 
 public class ContributionCount extends ScrapeRequest {
 
