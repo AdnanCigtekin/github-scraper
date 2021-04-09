@@ -1,4 +1,4 @@
-package GithubScraper.helpers;
+package githubscrapertest.helpers;
 
 public class utility {
 
