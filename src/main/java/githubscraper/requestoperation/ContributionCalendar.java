@@ -18,7 +18,7 @@ public class ContributionCalendar extends ScrapeRequest {
 		opModel = new OperationModel("contribution-calendar");
 	}
 
-	//TODO: Return as JSON String
+
 	static public ArrayNode getContributionCalendar(HtmlPage page) {
 		ObjectMapper objectMapper = new ObjectMapper();
 		
