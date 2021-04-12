@@ -2,6 +2,16 @@
 
 This library is created for scraping any user's profile in GitHub in an easy and fast way.
 
+
+#### Installation:
+In order to use this library you need to install the following dependencies
+
+[HtmlUnit - 2.47.1](https://mvnrepository.com/artifact/net.sourceforge.htmlunit/htmlunit/2.47.1)
+
+[Jackson Core - 2.0.1](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.0.1)
+
+After that, you can import this library any way you want.
+
 #### How to use:
 ```java
     	//Create commit count command object
