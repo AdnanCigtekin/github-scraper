@@ -14,6 +14,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import githubscraper.requestoperation.ContributionCalendar;
 import githubscraper.requestoperation.ContributionCount;
 import githubscraper.requestoperation.CurrentJob;
+import githubscraper.requestoperation.CurrentLocation;
 import githubscraper.requestoperation.ScrapeRequest;
 
 
@@ -56,7 +57,9 @@ public class ScrapeExecutor {
 						objectNode.put("current-job", cj_res);
 						break;
 					case "current-location":
-						throw new UnsupportedOperationException("Not implemented yet");
+						String cl_res = CurrentLocation.getCurrentLocation(page);
+						objectNode.put("current-location",cl_res);
+						break;
 					case "pinned-repositories":
 						throw new UnsupportedOperationException("Not implemented yet");
 					default:

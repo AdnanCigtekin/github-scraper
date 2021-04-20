@@ -8,26 +8,25 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import githubscraper.core.OperationModel;
 import githubscraper.utility.StringOperations;
 
-public class CurrentJob extends ScrapeRequest{
+public class CurrentLocation extends ScrapeRequest{
 
-	public CurrentJob() {
-		opModel = new OperationModel("current-job");
+	public CurrentLocation() {
+		opModel = new OperationModel("current-location");
 	}
 	
-	static public String getCurrentJob(HtmlPage page) {
+	static public String getCurrentLocation(HtmlPage page) {
 		DomNodeList<DomElement> listItems =  page.getElementsByTagName("li");
-		String currentJob = "";
+		String currentLocation = "";
 		
 		for(DomElement listItem : listItems) {
-        	HtmlElement element = (HtmlElement) listItem.getFirstByXPath("self::node()[@itemprop='worksFor']");
+        	HtmlElement element = (HtmlElement) listItem.getFirstByXPath("self::node()[@itemprop='homeLocation']");
         	if(element != null) {
-        		currentJob = StringOperations.stripAriaLabel(element.getAttribute("aria-label"));
+        		currentLocation = StringOperations.stripAriaLabel(element.getAttribute("aria-label"));
         		break;
         	}
 		}
 		
-		
-		return currentJob;
+		return currentLocation;
 	}
 
 }

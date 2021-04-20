@@ -20,6 +20,10 @@ public class StringOperations {
 		return new ArrayList<String>();
 	}
 	
+	static public String stripAriaLabel(String input) {
+		return input.split(":")[1].split(" ")[1];
+	}
+	
 	
 
 }

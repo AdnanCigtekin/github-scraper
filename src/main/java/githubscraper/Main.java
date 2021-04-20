@@ -7,6 +7,7 @@ import githubscraper.core.ScrapeExecutor;
 import githubscraper.requestoperation.ContributionCalendar;
 import githubscraper.requestoperation.ContributionCount;
 import githubscraper.requestoperation.CurrentJob;
+import githubscraper.requestoperation.CurrentLocation;
 
 
 
@@ -24,13 +25,16 @@ public class Main {
     	//Create current job command object
     	CurrentJob curJob = new CurrentJob();
     	
+    	CurrentLocation curLoc = new CurrentLocation();
+    	
     	//Create new executor to execute these commands
     	ScrapeExecutor executor = new ScrapeExecutor("AdnanCigtekin");
     	
     	//Append these commands to execution queue
-    	executor.addOperation(cmtCount);
-    	executor.addOperation(cntCal);
-    	executor.addOperation(curJob);
+    	//executor.addOperation(cmtCount);
+    	//executor.addOperation(cntCal);
+    	//executor.addOperation(curJob);
+    	executor.addOperation(curLoc);
 
     	//Execute all commands
     	String res = executor.executeAll();
