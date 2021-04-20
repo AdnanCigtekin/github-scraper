@@ -15,10 +15,11 @@ import githubscraper.requestoperation.ContributionCalendar;
 import githubscraper.requestoperation.ContributionCount;
 import githubscraper.requestoperation.CurrentJob;
 import githubscraper.requestoperation.CurrentLocation;
+import githubscraper.requestoperation.PinnedRepositories;
 import githubscraper.requestoperation.ScrapeRequest;
 
 
-//TODO: Add location, username and get the names and descriptions of the pinned repositories.
+//TODO: get the names and descriptions of the pinned repositories.
 public class ScrapeExecutor {
 
 	private List<ScrapeRequest> operations = new ArrayList<ScrapeRequest>();
@@ -61,7 +62,8 @@ public class ScrapeExecutor {
 						objectNode.put("current-location",cl_res);
 						break;
 					case "pinned-repositories":
-						throw new UnsupportedOperationException("Not implemented yet");
+						PinnedRepositories.getPinnedRepos(page);
+						break;
 					default:
 						throw new IllegalArgumentException("Unexpected value: " + operation.getOperationModel().getOperationName());
 					}
