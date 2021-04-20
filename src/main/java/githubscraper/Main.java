@@ -6,6 +6,7 @@ package githubscraper;
 import githubscraper.core.ScrapeExecutor;
 import githubscraper.requestoperation.ContributionCalendar;
 import githubscraper.requestoperation.ContributionCount;
+import githubscraper.requestoperation.CurrentJob;
 
 
 
@@ -20,12 +21,16 @@ public class Main {
     	//Create calendar count command object
     	ContributionCalendar cntCal = new ContributionCalendar();
     	
+    	//Create current job command object
+    	CurrentJob curJob = new CurrentJob();
+    	
     	//Create new executor to execute these commands
     	ScrapeExecutor executor = new ScrapeExecutor("AdnanCigtekin");
     	
     	//Append these commands to execution queue
     	executor.addOperation(cmtCount);
     	executor.addOperation(cntCal);
+    	executor.addOperation(curJob);
 
     	//Execute all commands
     	String res = executor.executeAll();

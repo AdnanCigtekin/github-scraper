@@ -13,6 +13,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import githubscraper.requestoperation.ContributionCalendar;
 import githubscraper.requestoperation.ContributionCount;
+import githubscraper.requestoperation.CurrentJob;
 import githubscraper.requestoperation.ScrapeRequest;
 
 
@@ -42,8 +43,8 @@ public class ScrapeExecutor {
 			for(ScrapeRequest operation : operations) {
 				switch (operation.getOperationModel().getOperationName()) {
 					case "contribution-count": {					
-						String res = ContributionCount.getContributionCount(page);
-						objectNode.put("contribution-count", res);
+						String cc_res = ContributionCount.getContributionCount(page);
+						objectNode.put("contribution-count", cc_res);
 						break;
 					}
 					case "contribution-calendar":
@@ -51,7 +52,9 @@ public class ScrapeExecutor {
 						objectNode.putArray("contribution-calendar").addAll(res);
 						break;
 					case "current-job":
-						throw new UnsupportedOperationException("Not implemented yet");
+						String cj_res = CurrentJob.getCurrentJob(page);
+						objectNode.put("current-job", cj_res);
+						break;
 					case "current-location":
 						throw new UnsupportedOperationException("Not implemented yet");
 					case "pinned-repositories":
