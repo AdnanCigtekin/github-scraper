@@ -1,5 +1,8 @@
 package githubscraper.requestoperation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.gargoylesoftware.htmlunit.html.DomElement;
@@ -21,7 +24,7 @@ public class PinnedRepositories  extends ScrapeRequest {
 		ObjectMapper objectMapper = new ObjectMapper();
 		DomNodeList<DomElement> orderedLists = page.getElementsByTagName("ol");
 		
-		
+		List<PinnedRepoPOJO> pinnedRepos = new ArrayList<PinnedRepoPOJO>(); 
 		
 		for(DomElement orderedList: orderedLists) {
 			HtmlElement element =  (HtmlElement)orderedList.getFirstByXPath("self::node()[@class='d-flex flex-wrap list-style-none gutter-condensed mb-4 js-pinned-items-reorder-list']");
@@ -74,16 +77,16 @@ public class PinnedRepositories  extends ScrapeRequest {
 						}
 						
 					}		
-					
-					System.out.println(curRepoProps.toString());
+					pinnedRepos.add(curRepoProps);
+					//System.out.println(curRepoProps.toString());
 
 				}
 							
 			}
 
 		}
-		
-		return null;
+		ArrayNode res = objectMapper.valueToTree(pinnedRepos);
+		return res;
 
 	}
 	
