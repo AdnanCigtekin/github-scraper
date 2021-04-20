@@ -25,6 +25,7 @@ public class ContributionCount extends ScrapeRequest {
         	HtmlElement element = (HtmlElement) header.getFirstByXPath("self::node()[@class='f4 text-normal mb-2']");
         	if(element != null) {
         		contribCount = element.asText();
+        		break;
         	}
         }
 		List<String> result = StringOperations.returnMatchedPattern("[0-9]+", contribCount);
