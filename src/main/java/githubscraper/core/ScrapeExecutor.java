@@ -17,7 +17,7 @@ import githubscraper.requestoperation.CurrentJob;
 import githubscraper.requestoperation.ScrapeRequest;
 
 
-//TODO: Add location, job, username and get the names and descriptions of the pinned repositories.
+//TODO: Add location, username and get the names and descriptions of the pinned repositories.
 public class ScrapeExecutor {
 
 	private List<ScrapeRequest> operations = new ArrayList<ScrapeRequest>();
