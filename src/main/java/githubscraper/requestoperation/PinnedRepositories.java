@@ -9,7 +9,6 @@ import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.svg.SvgRect;
 
 import githubscraper.core.OperationModel;
 import githubscraper.pojo.PinnedRepoPOJO;

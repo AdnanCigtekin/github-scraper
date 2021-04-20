@@ -30,6 +30,7 @@ public class Main {
     	//Create current location command object
     	CurrentLocation curLoc = new CurrentLocation();
     	
+    	//Create pinned repositories command object
     	PinnedRepositories curPins = new PinnedRepositories();
 
     	
@@ -37,10 +38,10 @@ public class Main {
     	ScrapeExecutor executor = new ScrapeExecutor("AdnanCigtekin");
     	
     	//Append these commands to execution queue
-//    	executor.addOperation(cmtCount);
-//    	executor.addOperation(cntCal);
-//    	executor.addOperation(curJob);
-//    	executor.addOperation(curLoc);
+    	executor.addOperation(cmtCount);
+    	executor.addOperation(cntCal);
+    	executor.addOperation(curJob);
+    	executor.addOperation(curLoc);
     	executor.addOperation(curPins);
     	
     	//Execute all commands
