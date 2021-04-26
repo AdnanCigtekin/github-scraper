@@ -25,3 +25,9 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
+
+task downloadDependencies(type: Exec) {
+    configurations.testRuntime.files
+    commandLine 'echo', 'Downloaded all dependencies'
+}
+apply plugin: "eclipse"
