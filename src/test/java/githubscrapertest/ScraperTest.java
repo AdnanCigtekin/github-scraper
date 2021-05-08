@@ -41,7 +41,7 @@ public class ScraperTest {
         ObjectMapper mapper = new ObjectMapper();
         try {
 			JsonNode actualObj = mapper.readTree(res);
-			JsonNode commitCount = actualObj.get("contribution-count");
+			JsonNode commitCount = actualObj.get("contributionCount");
 			if(utility.IsInteger(commitCount.textValue())) {
 				assert(true);
 			}else {
@@ -75,10 +75,10 @@ public class ScraperTest {
         ObjectMapper mapper = new ObjectMapper();
         try {
 			JsonNode actualObj = mapper.readTree(res);
-			ArrayNode contributionCalendar = (ArrayNode) actualObj.get("contribution-calendar");
+			ArrayNode contributionCalendar = (ArrayNode) actualObj.get("contributionCalendar");
 			
-			JsonNode emptyArr = mapper.readTree("{ \"contribution-calendar\" : []}");
-			ArrayNode emptyArrVal = (ArrayNode) emptyArr.get("contribution-calendar");
+			JsonNode emptyArr = mapper.readTree("{ \"contributionCalendar\" : []}");
+			ArrayNode emptyArrVal = (ArrayNode) emptyArr.get("contributionCalendar");
 			
 			if(!contributionCalendar.equals(emptyArrVal)) {
 				assert(true);

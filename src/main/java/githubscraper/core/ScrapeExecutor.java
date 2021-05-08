@@ -46,24 +46,24 @@ public class ScrapeExecutor {
 				switch (operation.getOperationModel().getOperationName()) {
 					case "contribution-count": {					
 						String cc_res = ContributionCount.getContributionCount(page);
-						objectNode.put("contribution-count", cc_res);
+						objectNode.put("contributionCount", cc_res);
 						break;
 					}
 					case "contribution-calendar":
 						ArrayNode cc_res = ContributionCalendar.getContributionCalendar(page);
-						objectNode.putArray("contribution-calendar").addAll(cc_res);
+						objectNode.putArray("contributionCalendar").addAll(cc_res);
 						break;
 					case "current-job":
 						String cj_res = CurrentJob.getCurrentJob(page);
-						objectNode.put("current-job", cj_res);
+						objectNode.put("currentJob", cj_res);
 						break;
 					case "current-location":
 						String cl_res = CurrentLocation.getCurrentLocation(page);
-						objectNode.put("current-location",cl_res);
+						objectNode.put("currentLocation",cl_res);
 						break;
 					case "pinned-repositories":
 						ArrayNode pr_res = PinnedRepositories.getPinnedRepos(page);
-						objectNode.putArray("pinned-repositories").addAll(pr_res);
+						objectNode.putArray("pinnedRepositories").addAll(pr_res);
 						break;
 					default:
 						throw new IllegalArgumentException("Unexpected value: " + operation.getOperationModel().getOperationName());
