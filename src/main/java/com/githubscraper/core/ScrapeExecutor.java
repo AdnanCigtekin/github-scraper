@@ -1,4 +1,4 @@
-package githubscraper.core;
+package com.githubscraper.core;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,13 +10,12 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
-
-import githubscraper.requestoperation.ContributionCalendar;
-import githubscraper.requestoperation.ContributionCount;
-import githubscraper.requestoperation.CurrentJob;
-import githubscraper.requestoperation.CurrentLocation;
-import githubscraper.requestoperation.PinnedRepositories;
-import githubscraper.requestoperation.ScrapeRequest;
+import com.githubscraper.requestoperation.ContributionCalendar;
+import com.githubscraper.requestoperation.ContributionCount;
+import com.githubscraper.requestoperation.CurrentJob;
+import com.githubscraper.requestoperation.CurrentLocation;
+import com.githubscraper.requestoperation.PinnedRepositories;
+import com.githubscraper.requestoperation.ScrapeRequest;
 
 
 //TODO: get the names and descriptions of the pinned repositories.

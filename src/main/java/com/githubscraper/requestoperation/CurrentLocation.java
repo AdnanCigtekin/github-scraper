@@ -1,12 +1,11 @@
-package githubscraper.requestoperation;
+package com.githubscraper.requestoperation;
 
 import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
-
-import githubscraper.core.OperationModel;
-import githubscraper.utility.StringOperations;
+import com.githubscraper.core.OperationModel;
+import com.githubscraper.utility.StringOperations;
 
 public class CurrentLocation extends ScrapeRequest{
 

@@ -9,10 +9,10 @@ import org.junit.Test;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.githubscraper.core.ScrapeExecutor;
+import com.githubscraper.requestoperation.ContributionCalendar;
+import com.githubscraper.requestoperation.ContributionCount;
 
-import githubscraper.core.ScrapeExecutor;
-import githubscraper.requestoperation.ContributionCalendar;
-import githubscraper.requestoperation.ContributionCount;
 import githubscrapertest.helpers.utility;
 
 import static org.junit.Assert.*;

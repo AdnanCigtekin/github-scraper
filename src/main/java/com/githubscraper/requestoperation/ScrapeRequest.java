@@ -1,6 +1,6 @@
-package githubscraper.requestoperation;
+package com.githubscraper.requestoperation;
 
-import githubscraper.core.OperationModel;
+import com.githubscraper.core.OperationModel;
 
 public class ScrapeRequest {
 

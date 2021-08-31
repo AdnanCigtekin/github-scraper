@@ -1,4 +1,4 @@
-package githubscraper.pojo;
+package com.githubscraper.pojo;
 
 public class PinnedRepoPOJO {
 

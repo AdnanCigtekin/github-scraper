@@ -1,4 +1,4 @@
-package githubscraper.utility;
+package com.githubscraper.utility;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package githubscraper.requestoperation;
+package com.githubscraper.requestoperation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,7 @@ import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.svg.SvgRect;
-
-import githubscraper.core.OperationModel;
+import com.githubscraper.core.OperationModel;
 
 public class ContributionCalendar extends ScrapeRequest {
 

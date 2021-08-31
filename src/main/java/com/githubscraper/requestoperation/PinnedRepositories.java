@@ -1,4 +1,4 @@
-package githubscraper.requestoperation;
+package com.githubscraper.requestoperation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,8 @@ import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
-
-import githubscraper.core.OperationModel;
-import githubscraper.pojo.PinnedRepoPOJO;
+import com.githubscraper.core.OperationModel;
+import com.githubscraper.pojo.PinnedRepoPOJO;
 
 public class PinnedRepositories  extends ScrapeRequest {
 
