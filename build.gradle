@@ -37,6 +37,7 @@ task downloadDependencies(type: Exec) {
 
 jar {
     enabled = true
+    exclude("Main.java")
 }
 
 apply plugin: "eclipse"
