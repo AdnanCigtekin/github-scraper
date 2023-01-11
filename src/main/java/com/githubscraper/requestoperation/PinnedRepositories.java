@@ -25,7 +25,7 @@ public class PinnedRepositories  extends ScrapeRequest {
 		List<PinnedRepoPOJO> pinnedRepos = new ArrayList<PinnedRepoPOJO>(); 
 		
 		for(DomElement orderedList: orderedLists) {
-			HtmlElement element =  (HtmlElement)orderedList.getFirstByXPath("self::node()[@class='d-flex flex-wrap list-style-none gutter-condensed mb-4 js-pinned-items-reorder-list']");
+			HtmlElement element =  (HtmlElement)orderedList.getFirstByXPath("self::node()[@class='d-flex flex-wrap list-style-none gutter-condensed mb-2 js-pinned-items-reorder-list']");
 			
 			if(element != null) {
 				
@@ -53,7 +53,7 @@ public class PinnedRepositories  extends ScrapeRequest {
 					DomNodeList<HtmlElement> paragraphs = list.getElementsByTagName("p");
 					//Get repo descriptions
 					for(HtmlElement paragraph : paragraphs) {
-						HtmlElement repoDesc = (HtmlElement) paragraph.getFirstByXPath("self::node()[@class='pinned-item-desc color-text-secondary text-small d-block mt-2 mb-3']");
+						HtmlElement repoDesc = (HtmlElement) paragraph.getFirstByXPath("self::node()[@class='pinned-item-desc color-fg-muted text-small mt-2 mb-0']");
 						if(repoDesc != null) {
 							curRepoProps.setRepoDesc(repoDesc.asText());
 						}

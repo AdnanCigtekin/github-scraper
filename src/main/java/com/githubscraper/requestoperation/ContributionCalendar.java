@@ -24,9 +24,9 @@ public class ContributionCalendar extends ScrapeRequest {
 		DomNodeList<DomElement> svgs = page.getElementsByTagName("rect");
 		List<String> elements = new ArrayList<String>();
 		for(DomElement svg: svgs) {
-			SvgRect element =  svg.getFirstByXPath("self::node()[@class='ContributionCalendar-day'and @data-count]");
+			SvgRect element =  svg.getFirstByXPath("self::node()[@class='ContributionCalendar-day'and @data-level]");
 			if(element != null) {
-				elements.add(element.getAttribute("data-count"));
+				elements.add(element.getAttribute("data-level"));
 							
 			}
 
