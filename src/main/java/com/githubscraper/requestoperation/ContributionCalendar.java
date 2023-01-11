@@ -23,12 +23,10 @@ public class ContributionCalendar extends ScrapeRequest {
 		
 		DomNodeList<DomElement> svgs = page.getElementsByTagName("rect");
 		List<String> elements = new ArrayList<String>();
-		System.out.println("svg count : " + svgs.size());
 		for(DomElement svg: svgs) {
 
-			SvgRect element =  svg.getFirstByXPath("self::node()[@class='ContributionCalendar-day'and @data-level and @data-date]");
+			SvgRect element =  svg.getFirstByXPath("self::node()[@class='ContributionCalendar-day'and @data-level and @data-date and @x and @y]");
 			if(element != null) {
-				System.out.println(svg);
 				elements.add(element.getAttribute("data-level"));
 							
 			}
@@ -36,7 +34,6 @@ public class ContributionCalendar extends ScrapeRequest {
 		}
 		
 		ArrayNode res = objectMapper.valueToTree(elements);
-		System.out.println("res size : " + res.size());
 		return res;
 	}
 
