@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.html.HtmlTableCell;
 import com.gargoylesoftware.htmlunit.svg.SvgRect;
 import com.githubscraper.core.OperationModel;
 
@@ -21,12 +22,12 @@ public class ContributionCalendar extends ScrapeRequest {
 	static public ArrayNode getContributionCalendar(HtmlPage page) {
 		ObjectMapper objectMapper = new ObjectMapper();
 		
-		DomNodeList<DomElement> svgs = page.getElementsByTagName("rect");
+		DomNodeList<DomElement> svgs = page.getElementsByTagName("td");
 		List<String> elements = new ArrayList<String>();
 		for(DomElement svg: svgs) {
-			SvgRect element =  svg.getFirstByXPath("self::node()[@class='ContributionCalendar-day'and @data-count]");
+			HtmlTableCell element =  svg.getFirstByXPath("self::node()[@class='ContributionCalendar-day'and @data-level]");
 			if(element != null) {
-				elements.add(element.getAttribute("data-count"));
+				elements.add(element.getAttribute("data-level"));
 							
 			}
 
