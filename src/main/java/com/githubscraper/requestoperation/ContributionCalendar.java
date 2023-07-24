@@ -21,11 +21,11 @@ public class ContributionCalendar extends ScrapeRequest {
 	static public ArrayNode getContributionCalendar(HtmlPage page) {
 		ObjectMapper objectMapper = new ObjectMapper();
 		
-		DomNodeList<DomElement> svgs = page.getElementsByTagName("td");
+		DomNodeList<DomElement> cells = page.getElementsByTagName("td");
 		List<String> elements = new ArrayList<String>();
-		for(DomElement svg: svgs) {
+		for(DomElement cell: cells) {
 
-			HtmlTableCell element =  svg.getFirstByXPath("self::node()[@class='ContributionCalendar-day'and @data-level]");
+			HtmlTableCell element =  cell.getFirstByXPath("self::node()[@class='ContributionCalendar-day'and @data-level]");
 			if(element != null) {
 				elements.add(element.getAttribute("data-level"));
 							
