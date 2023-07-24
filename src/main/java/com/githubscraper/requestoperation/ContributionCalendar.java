@@ -9,7 +9,6 @@ import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlTableCell;
-import com.gargoylesoftware.htmlunit.svg.SvgRect;
 import com.githubscraper.core.OperationModel;
 
 public class ContributionCalendar extends ScrapeRequest {
@@ -25,6 +24,7 @@ public class ContributionCalendar extends ScrapeRequest {
 		DomNodeList<DomElement> svgs = page.getElementsByTagName("td");
 		List<String> elements = new ArrayList<String>();
 		for(DomElement svg: svgs) {
+
 			HtmlTableCell element =  svg.getFirstByXPath("self::node()[@class='ContributionCalendar-day'and @data-level]");
 			if(element != null) {
 				elements.add(element.getAttribute("data-level"));
